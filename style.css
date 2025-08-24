@@ -1,0 +1,133 @@
+/* Base styles and variables */
+:root {
+    --primary: #3498db;
+    --secondary: #2c3e50;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --text: #333;
+    --spacing: 1rem;
+    --border-radius: 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: #f9f9f9;
+}
+
+/* Header with Flexbox */
+.header {
+    background: var(--primary);
+    color: white;
+    padding: var(--spacing);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav {
+    display: flex;
+    gap: var(--spacing);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main container with Grid */
+.main-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: var(--spacing);
+    padding: var(--spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Content area */
+.content {
+    background: white;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Card grid using Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing);
+    margin-top: var(--spacing);
+}
+
+.card {
+    background: var(--light);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+/* Sidebar with Flexbox */
+.sidebar {
+    background: var(--secondary);
+    color: white;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.sidebar-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+}
+
+/* Footer */
+.footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: var(--spacing);
+    margin-top: var(--spacing);
+}
+
+/* Responsive design with media queries */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: calc(var(--spacing) / 2);
+    }
+    
+    .nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
